@@ -25,7 +25,7 @@ const server = (0, appInstance_1.default)({
     } : null,
 });
 (() => __awaiter(void 0, void 0, void 0, function* () {
-    yield server.listen({ port: process.env.PORT ? parseInt(process.env.PORT) : 8060, host: '0.0.0.0' });
+    yield server.listen({ port: 8050, host: '0.0.0.0' });
     logger_1.logger.info(`Server started`);
 }))();
 //# sourceMappingURL=server.js.map

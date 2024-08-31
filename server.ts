@@ -15,7 +15,7 @@ const server = fastifyInstance({
 
 (async ()=>{
 
-  await server.listen({port: process.env.PORT ? parseInt(process.env.PORT) : 8060, host:'0.0.0.0'})
+  await server.listen({port: 8050, host:'0.0.0.0'})
   logger.info(`Server started`)
 
 })();
