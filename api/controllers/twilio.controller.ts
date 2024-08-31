@@ -1,9 +1,9 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import twilio from "twilio";
-import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/client';
 import { logger } from "../../utils/logger";
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 const ivrWelcome = (req: FastifyRequest<{ Body: RequestBody }>, res: FastifyReply) => {
     try{
@@ -56,22 +56,22 @@ const ivrMenu = (req: FastifyRequest<{ Body: RequestBody }>, res: FastifyReply) 
 }
 
 const storeCallData = async (req: FastifyRequest<{ Body: RequestBody }>) => {
-    try {
+    // try {
 
-        const newCall = await prisma.call.create({
-          data: {
-            fromNumber: req.body.From,
-            toNumber: req.body.To,
-            // startTime:"",
-            status: req.body.CallStatus,
-            duration: req.body.Duration,
-            callRecordingUrl: req.body.RecordingUrl
-          },
-        });
-        logger.info('Call added:', newCall);
-    } catch (error) {
-        logger.error('Error adding call:', error);
-    }
+    //     const newCall = await prisma.call.create({
+    //       data: {
+    //         fromNumber: req.body.From,
+    //         toNumber: req.body.To,
+    //         // startTime:"",
+    //         status: req.body.CallStatus,
+    //         duration: req.body.Duration,
+    //         callRecordingUrl: req.body.RecordingUrl
+    //       },
+    //     });
+    //     logger.info('Call added:', newCall);
+    // } catch (error) {
+    //     logger.error('Error adding call:', error);
+    // }
 }
 
 const voiceMail = (req: FastifyRequest<{ Body: RequestBody }>, res: FastifyReply) => {
