@@ -14,9 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ivrMenu = exports.voiceMail = exports.ivrWelcome = void 0;
 const twilio_1 = __importDefault(require("twilio"));
-// import { PrismaClient } from '@prisma/client';
+const client_1 = require("@prisma/client");
 const logger_1 = require("../../utils/logger");
-// const prisma = new PrismaClient();
+const prisma = new client_1.PrismaClient();
 const ivrWelcome = (req, res) => {
     try {
         const twiml = new twilio_1.default.twiml.VoiceResponse();
@@ -61,21 +61,22 @@ const ivrMenu = (req, res) => {
 };
 exports.ivrMenu = ivrMenu;
 const storeCallData = (req) => __awaiter(void 0, void 0, void 0, function* () {
-    // try {
-    //     const newCall = await prisma.call.create({
-    //       data: {
-    //         fromNumber: req.body.From,
-    //         toNumber: req.body.To,
-    //         // startTime:"",
-    //         status: req.body.CallStatus,
-    //         duration: req.body.Duration,
-    //         callRecordingUrl: req.body.RecordingUrl
-    //       },
-    //     });
-    //     logger.info('Call added:', newCall);
-    // } catch (error) {
-    //     logger.error('Error adding call:', error);
-    // }
+    try {
+        const newCall = yield prisma.call.create({
+            data: {
+                fromNumber: req.body.From,
+                toNumber: req.body.To,
+                // startTime:"",
+                status: req.body.CallStatus,
+                duration: req.body.Duration,
+                callRecordingUrl: req.body.RecordingUrl
+            },
+        });
+        logger_1.logger.info('Call added:', newCall);
+    }
+    catch (error) {
+        logger_1.logger.error('Error adding call:', error);
+    }
 });
 const voiceMail = (req, res) => {
     try {
