@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd models && npx prisma generate && npm start",
+    "build": "cd models && prisma generate && npm start",
     "start": "node build/server.js"
   },
   "keywords": [],
