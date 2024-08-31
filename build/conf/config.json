@@ -1,0 +1,24 @@
+{
+    "serverConfig": {
+        "https": false,
+        "keys": {
+            "key": "",
+            "cert": ""
+        },
+        "appConnectionTimeout": 10000
+    },
+    "swaggerConfig": {
+        "disableSwaggerDocs": false,
+        "swaggerDocsAuth": {
+            "isEnabled": false,
+            "username": "admin",
+            "password": "admin"
+        }
+    },
+    "loggerConfig": {
+        "logLevel": "all",
+        "consoleModeEnable": true,
+        "fileModeEnable": false,
+        "logDirectory": "/var/twilio_test/logs"
+    }
+}

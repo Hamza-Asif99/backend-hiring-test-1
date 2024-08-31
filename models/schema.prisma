@@ -1,0 +1,17 @@
+generator client {
+    provider = "prisma-client-js"
+}
+  
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+model Call {
+    id               Int      @id @default(autoincrement())
+    fromNumber       String   @db.VarChar(20)
+    toNumber         String   @db.VarChar(20)
+    status           String   @db.VarChar(50)
+    duration         Int?
+    callRecordingUrl String?  @db.Text
+}
+  
