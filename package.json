@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd models && prisma generate && npm start",
-    "start": "node build/server.js"
+    "start": "node build/server.js",
+    "postinstall": "prisma generate --schema models/schema.prisma"
   },
   "keywords": [],
   "author": "",
